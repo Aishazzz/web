@@ -1,0 +1,45 @@
+<!-- templates/pages/homeuser.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Filter And Search</title>
+  <link rel="stylesheet" href="{% static 'css/homeuser.css' %}">
+</head>
+<body>
+  <div class="header">
+    <div id="side_bar" class="side-bar">
+      <div class="user">
+        <img class="user-img" src="{% static 'images/account.png' %}" alt="user_img" width="45px" height="45px">
+        <div class="user-info"></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search ..." />
+      <button id="search">Search</button>
+    </div>
+    <div id="products">
+      {% for book in books %}
+      <div class="product-item">
+        <div class="product-image">
+          {% if book.cover_photo %}
+          <a href="{% url 'bookpg'%}"><img src="{{ book.cover_photo.url }}" alt="{{ book.title }}" class="book-cover"></a>
+          {% else %}
+          <a href="{% url 'bookpg' %}"><div class="placeholder-cover">No Cover</div></a>
+          {% endif %}
+        </div>
+        <div class="product-details">
+          <h3><span class="title-label">{{ book.title }}</span></h3>
+          <h5><span class="category-label">Category:</span> {{ book.category }}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
+{% endblock content %}

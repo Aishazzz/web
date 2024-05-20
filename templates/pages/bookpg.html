@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Book Page</title>
+    <script src="{% static 'js/all.js' %}"></script>
+    <link rel ="stylesheet" href="{% static 'css/bookpg.css' %}">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="book_container">
+        <div class="bookimg">
+            <img id="bookImage" src="" width="360px" height="440px">
+        </div>
+        <div class="bookinfo">
+            <p class="book_title" style="font-family: Lora;"><b id="title"></b></p>
+            <p class="author"><i id="author"></i></p>
+            <h4 class="bookcategory" id="category"></h4>
+            <div class="descinfo">
+                <div class="bookdesc"> Book Description</div>
+                <p class="description" id="description"></p>
+            </div>
+        </div>
+    </div>
+    <div class="bottominfo">
+        <div class="statusclass">
+            <span class="status">Status: </span>
+            <span style="color: rgb(48, 207, 48);">In Stock</span>
+        </div>
+        <!-- Borrow button with id "borrowButton" -->
+        <button class="borrowbutton" id="borrowButton">Borrow</button>
+    </div>
+
+</body>
+
+</html>
+
+
+
+{% endblock content %}
